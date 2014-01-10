@@ -1,0 +1,96 @@
+//
+//  FFSampleExpandableTableViewController.m
+//  FFTableView Sample
+//
+//  Created by Florian Friedrich on 9.1.14.
+//  Copyright (c) 2014 Florian Friedrich. All rights reserved.
+//
+
+#import "FFSampleExpandableTableViewController.h"
+#import "FFCityCell.h"
+
+@interface FFSampleExpandableTableViewController () <FFNSFetchedResultsControllerDelegate, FFTableViewDataSourceDelegate>
+
+@property (nonatomic, strong) FFCityCell *prototypeCell;
+
+@end
+
+
+static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellIdentifier";
+@implementation FFSampleExpandableTableViewController
+@synthesize fetchedResultsController = _fetchedResultsController;
+
+- (void)initialize
+{
+    [super initialize];
+    self.title = @"Expandable";
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    [self.tableView registerClass:[FFCityCell class] forCellReuseIdentifier:FFExpandableCityCellIdentifier];
+    [self setupWithFetchedResultsController:self.fetchedResultsController tableView:self.tableView fetchedResultsControllerDelegate:self tableViewDataSourceDelegate:self];
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (!_fetchedResultsController) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"City"];
+        
+        NSSortDescriptor *stateNameSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"state.name" ascending:YES];
+        NSSortDescriptor *nameSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        fetchRequest.sortDescriptors = @[stateNameSortDescriptor, nameSortDescriptor];
+               
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"state.name" cacheName:@"FFSampleExpandableTableViewController"];
+        
+        __autoreleasing NSError *error = nil;
+        if (![_fetchedResultsController performFetch:&error]) {
+            NSLog(@"Unresolved error in FFSampleExpandableTableViewController %@, %@", error, [error userInfo]);
+            //abort();
+        }
+    }
+    
+    return _fetchedResultsController;
+}
+
+#pragma mark - FFTableViewDataSourceDelegate
+- (NSString *)tableView:(UITableView *)tableView cellIdentifierForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // You could return different identifiers for different indexpaths here if needed
+    return FFExpandableCityCellIdentifier;
+}
+
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object
+{
+    FFCityCell *cityCell = (FFCityCell *)cell; // Cell is a FFCityCell as registered in viewDidLoad
+    BOOL expanded = [self isIndexPathExpanded:indexPath]; // isIndexPathExpanded returns true if the indexPath is expanded
+    [cityCell configureWithObject:object expanded:expanded]; // Configure the cell
+}
+
+#pragma mark - FFNSFetchedResultsControllerDelegate
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return nil;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.prototypeCell) {
+        self.prototypeCell = [tableView dequeueReusableCellWithIdentifier:[self tableView:tableView cellIdentifierForRowAtIndexPath:indexPath]];
+    }
+    [self tableView:tableView configureCell:self.prototypeCell forRowAtIndexPath:indexPath withObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    
+    CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // You should definitively do some better calculations here!
+    return ([self isIndexPathExpanded:indexPath]) ? 44.0f * 2.0f : 44.0f;
+}
+
+@end

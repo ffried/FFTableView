@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0707D0D4187C6CCC00302278 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D3187C6CCC00302278 /* Foundation.framework */; };
+		0707D0D6187C6CCC00302278 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D5187C6CCC00302278 /* CoreGraphics.framework */; };
+		0707D0D8187C6CCC00302278 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D7187C6CCC00302278 /* UIKit.framework */; };
+		0707D0DA187C6CCC00302278 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D9187C6CCC00302278 /* CoreData.framework */; };
+		0707D0E0187C6CCC00302278 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0707D0DE187C6CCC00302278 /* InfoPlist.strings */; };
+		0707D0E2187C6CCC00302278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D0E1187C6CCC00302278 /* main.m */; };
+		0707D0E6187C6CCC00302278 /* FFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D0E5187C6CCC00302278 /* FFAppDelegate.m */; };
+		0707D0E9187C6CCC00302278 /* FFTableViewSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0707D0E7187C6CCC00302278 /* FFTableViewSample.xcdatamodeld */; };
+		0707D0EB187C6CCC00302278 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0707D0EA187C6CCC00302278 /* Images.xcassets */; };
+		0707D0F2187C6CCD00302278 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0F1187C6CCD00302278 /* XCTest.framework */; };
+		0707D0F3187C6CCD00302278 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D3187C6CCC00302278 /* Foundation.framework */; };
+		0707D0F4187C6CCD00302278 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D7187C6CCC00302278 /* UIKit.framework */; };
+		0707D0F5187C6CCD00302278 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707D0D9187C6CCC00302278 /* CoreData.framework */; };
+		0707D0FD187C6CCD00302278 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0707D0FB187C6CCD00302278 /* InfoPlist.strings */; };
+		0707D0FF187C6CCD00302278 /* FFTableViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D0FE187C6CCD00302278 /* FFTableViewSampleTests.m */; };
+		0707D12C187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D122187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m */; };
+		0707D12D187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D122187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m */; };
+		0707D12E187F0D1F00302278 /* FFTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D124187F0D1F00302278 /* FFTableViewDataSource.m */; };
+		0707D12F187F0D1F00302278 /* FFTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D124187F0D1F00302278 /* FFTableViewDataSource.m */; };
+		0707D130187F0D1F00302278 /* FFExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D127187F0D1F00302278 /* FFExpandableTableViewCell.m */; };
+		0707D131187F0D1F00302278 /* FFExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D127187F0D1F00302278 /* FFExpandableTableViewCell.m */; };
+		0707D132187F0D1F00302278 /* FFExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D129187F0D1F00302278 /* FFExpandableTableViewController.m */; };
+		0707D133187F0D1F00302278 /* FFExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D129187F0D1F00302278 /* FFExpandableTableViewController.m */; };
+		0707D134187F0D1F00302278 /* FFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D12B187F0D1F00302278 /* FFTableViewController.m */; };
+		0707D135187F0D1F00302278 /* FFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D12B187F0D1F00302278 /* FFTableViewController.m */; };
+		0707D138187F0DAF00302278 /* FFSampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D137187F0DAF00302278 /* FFSampleTableViewController.m */; };
+		0707D139187F0DAF00302278 /* FFSampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D137187F0DAF00302278 /* FFSampleTableViewController.m */; };
+		0707D13C187F0EBA00302278 /* FFSampleExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D13B187F0EBA00302278 /* FFSampleExpandableTableViewController.m */; };
+		0707D13D187F0EBA00302278 /* FFSampleExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D13B187F0EBA00302278 /* FFSampleExpandableTableViewController.m */; };
+		0707D140187F0FB000302278 /* FFCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D13F187F0FB000302278 /* FFCityCell.m */; };
+		0707D141187F0FB000302278 /* FFCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D13F187F0FB000302278 /* FFCityCell.m */; };
+		0707D144187F22A100302278 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D143187F22A100302278 /* City.m */; };
+		0707D145187F22A100302278 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D143187F22A100302278 /* City.m */; };
+		0707D148187F22A100302278 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D147187F22A100302278 /* State.m */; };
+		0707D149187F22A100302278 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707D147187F22A100302278 /* State.m */; };
+		0707D14B18805FA100302278 /* FFTableViewSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0707D0E7187C6CCC00302278 /* FFTableViewSample.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0707D0F6187C6CCD00302278 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0707D0C8187C6CCC00302278 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0707D0CF187C6CCC00302278;
+			remoteInfo = FFTableView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0707D0D0187C6CCC00302278 /* FFTableView Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FFTableView Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0707D0D3187C6CCC00302278 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0707D0D5187C6CCC00302278 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0707D0D7187C6CCC00302278 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0707D0D9187C6CCC00302278 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0707D0DD187C6CCC00302278 /* FFTableView Sample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FFTableView Sample-Info.plist"; sourceTree = "<group>"; };
+		0707D0DF187C6CCC00302278 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0707D0E1187C6CCC00302278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0707D0E3187C6CCC00302278 /* FFTableView Sample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFTableView Sample-Prefix.pch"; sourceTree = "<group>"; };
+		0707D0E4187C6CCC00302278 /* FFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAppDelegate.h; sourceTree = "<group>"; };
+		0707D0E5187C6CCC00302278 /* FFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAppDelegate.m; sourceTree = "<group>"; };
+		0707D0E8187C6CCC00302278 /* FFTableViewSample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FFTableViewSample.xcdatamodel; sourceTree = "<group>"; };
+		0707D0EA187C6CCC00302278 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0707D0F0187C6CCD00302278 /* FFTableView SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FFTableView SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0707D0F1187C6CCD00302278 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0707D0FA187C6CCD00302278 /* FFTableView SampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FFTableView SampleTests-Info.plist"; sourceTree = "<group>"; };
+		0707D0FC187C6CCD00302278 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0707D0FE187C6CCD00302278 /* FFTableViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFTableViewSampleTests.m; sourceTree = "<group>"; };
+		0707D121187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFNSFetchedResultsControllerDelegate.h; sourceTree = "<group>"; };
+		0707D122187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNSFetchedResultsControllerDelegate.m; sourceTree = "<group>"; };
+		0707D123187F0D1F00302278 /* FFTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTableViewDataSource.h; sourceTree = "<group>"; };
+		0707D124187F0D1F00302278 /* FFTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFTableViewDataSource.m; sourceTree = "<group>"; };
+		0707D126187F0D1F00302278 /* FFExpandableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFExpandableTableViewCell.h; sourceTree = "<group>"; };
+		0707D127187F0D1F00302278 /* FFExpandableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFExpandableTableViewCell.m; sourceTree = "<group>"; };
+		0707D128187F0D1F00302278 /* FFExpandableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFExpandableTableViewController.h; sourceTree = "<group>"; };
+		0707D129187F0D1F00302278 /* FFExpandableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFExpandableTableViewController.m; sourceTree = "<group>"; };
+		0707D12A187F0D1F00302278 /* FFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTableViewController.h; sourceTree = "<group>"; };
+		0707D12B187F0D1F00302278 /* FFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFTableViewController.m; sourceTree = "<group>"; };
+		0707D136187F0DAF00302278 /* FFSampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFSampleTableViewController.h; sourceTree = "<group>"; };
+		0707D137187F0DAF00302278 /* FFSampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFSampleTableViewController.m; sourceTree = "<group>"; };
+		0707D13A187F0EBA00302278 /* FFSampleExpandableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFSampleExpandableTableViewController.h; sourceTree = "<group>"; };
+		0707D13B187F0EBA00302278 /* FFSampleExpandableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFSampleExpandableTableViewController.m; sourceTree = "<group>"; };
+		0707D13E187F0FB000302278 /* FFCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFCityCell.h; sourceTree = "<group>"; };
+		0707D13F187F0FB000302278 /* FFCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFCityCell.m; sourceTree = "<group>"; };
+		0707D142187F22A100302278 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		0707D143187F22A100302278 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		0707D146187F22A100302278 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		0707D147187F22A100302278 /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0707D0CD187C6CCC00302278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0707D0D6187C6CCC00302278 /* CoreGraphics.framework in Frameworks */,
+				0707D0DA187C6CCC00302278 /* CoreData.framework in Frameworks */,
+				0707D0D8187C6CCC00302278 /* UIKit.framework in Frameworks */,
+				0707D0D4187C6CCC00302278 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0707D0ED187C6CCD00302278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0707D0F2187C6CCD00302278 /* XCTest.framework in Frameworks */,
+				0707D0F5187C6CCD00302278 /* CoreData.framework in Frameworks */,
+				0707D0F4187C6CCD00302278 /* UIKit.framework in Frameworks */,
+				0707D0F3187C6CCD00302278 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0707D0C7187C6CCC00302278 = {
+			isa = PBXGroup;
+			children = (
+				0707D0DB187C6CCC00302278 /* FFTableViewSample */,
+				0707D0F8187C6CCD00302278 /* FFTableViewSampleTests */,
+				0707D0D2187C6CCC00302278 /* Frameworks */,
+				0707D0D1187C6CCC00302278 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0707D0D1187C6CCC00302278 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0707D0D0187C6CCC00302278 /* FFTableView Sample.app */,
+				0707D0F0187C6CCD00302278 /* FFTableView SampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0707D0D2187C6CCC00302278 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0707D0D3187C6CCC00302278 /* Foundation.framework */,
+				0707D0D5187C6CCC00302278 /* CoreGraphics.framework */,
+				0707D0D7187C6CCC00302278 /* UIKit.framework */,
+				0707D0D9187C6CCC00302278 /* CoreData.framework */,
+				0707D0F1187C6CCD00302278 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0707D0DB187C6CCC00302278 /* FFTableViewSample */ = {
+			isa = PBXGroup;
+			children = (
+				0707D11F187F0D1F00302278 /* FFTableView */,
+				0707D0E4187C6CCC00302278 /* FFAppDelegate.h */,
+				0707D0E5187C6CCC00302278 /* FFAppDelegate.m */,
+				0707D136187F0DAF00302278 /* FFSampleTableViewController.h */,
+				0707D137187F0DAF00302278 /* FFSampleTableViewController.m */,
+				0707D13E187F0FB000302278 /* FFCityCell.h */,
+				0707D13F187F0FB000302278 /* FFCityCell.m */,
+				0707D13A187F0EBA00302278 /* FFSampleExpandableTableViewController.h */,
+				0707D13B187F0EBA00302278 /* FFSampleExpandableTableViewController.m */,
+				0707D14A187F22A700302278 /* CoreData Stuff */,
+				0707D0EA187C6CCC00302278 /* Images.xcassets */,
+				0707D0DC187C6CCC00302278 /* Supporting Files */,
+			);
+			name = FFTableViewSample;
+			path = FFTableView;
+			sourceTree = "<group>";
+		};
+		0707D0DC187C6CCC00302278 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0707D0DD187C6CCC00302278 /* FFTableView Sample-Info.plist */,
+				0707D0DE187C6CCC00302278 /* InfoPlist.strings */,
+				0707D0E1187C6CCC00302278 /* main.m */,
+				0707D0E3187C6CCC00302278 /* FFTableView Sample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0707D0F8187C6CCD00302278 /* FFTableViewSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				0707D0FE187C6CCD00302278 /* FFTableViewSampleTests.m */,
+				0707D0F9187C6CCD00302278 /* Supporting Files */,
+			);
+			name = FFTableViewSampleTests;
+			path = FFTableViewTests;
+			sourceTree = "<group>";
+		};
+		0707D0F9187C6CCD00302278 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0707D0FA187C6CCD00302278 /* FFTableView SampleTests-Info.plist */,
+				0707D0FB187C6CCD00302278 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0707D11F187F0D1F00302278 /* FFTableView */ = {
+			isa = PBXGroup;
+			children = (
+				0707D120187F0D1F00302278 /* CoreData */,
+				0707D125187F0D1F00302278 /* Expandable */,
+				0707D12A187F0D1F00302278 /* FFTableViewController.h */,
+				0707D12B187F0D1F00302278 /* FFTableViewController.m */,
+			);
+			name = FFTableView;
+			path = ../../FFTableView;
+			sourceTree = "<group>";
+		};
+		0707D120187F0D1F00302278 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0707D121187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.h */,
+				0707D122187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m */,
+				0707D123187F0D1F00302278 /* FFTableViewDataSource.h */,
+				0707D124187F0D1F00302278 /* FFTableViewDataSource.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0707D125187F0D1F00302278 /* Expandable */ = {
+			isa = PBXGroup;
+			children = (
+				0707D126187F0D1F00302278 /* FFExpandableTableViewCell.h */,
+				0707D127187F0D1F00302278 /* FFExpandableTableViewCell.m */,
+				0707D128187F0D1F00302278 /* FFExpandableTableViewController.h */,
+				0707D129187F0D1F00302278 /* FFExpandableTableViewController.m */,
+			);
+			path = Expandable;
+			sourceTree = "<group>";
+		};
+		0707D14A187F22A700302278 /* CoreData Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				0707D0E7187C6CCC00302278 /* FFTableViewSample.xcdatamodeld */,
+				0707D146187F22A100302278 /* State.h */,
+				0707D147187F22A100302278 /* State.m */,
+				0707D142187F22A100302278 /* City.h */,
+				0707D143187F22A100302278 /* City.m */,
+			);
+			name = "CoreData Stuff";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0707D0CF187C6CCC00302278 /* FFTableView Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0707D102187C6CCD00302278 /* Build configuration list for PBXNativeTarget "FFTableView Sample" */;
+			buildPhases = (
+				0707D0CC187C6CCC00302278 /* Sources */,
+				0707D0CD187C6CCC00302278 /* Frameworks */,
+				0707D0CE187C6CCC00302278 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FFTableView Sample";
+			productName = FFTableView;
+			productReference = 0707D0D0187C6CCC00302278 /* FFTableView Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0707D0EF187C6CCD00302278 /* FFTableView SampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0707D105187C6CCD00302278 /* Build configuration list for PBXNativeTarget "FFTableView SampleTests" */;
+			buildPhases = (
+				0707D0EC187C6CCD00302278 /* Sources */,
+				0707D0ED187C6CCD00302278 /* Frameworks */,
+				0707D0EE187C6CCD00302278 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0707D0F7187C6CCD00302278 /* PBXTargetDependency */,
+			);
+			name = "FFTableView SampleTests";
+			productName = FFTableViewTests;
+			productReference = 0707D0F0187C6CCD00302278 /* FFTableView SampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0707D0C8187C6CCC00302278 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FF;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Florian Friedrich";
+				TargetAttributes = {
+					0707D0EF187C6CCD00302278 = {
+						TestTargetID = 0707D0CF187C6CCC00302278;
+					};
+				};
+			};
+			buildConfigurationList = 0707D0CB187C6CCC00302278 /* Build configuration list for PBXProject "FFTableView Sample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0707D0C7187C6CCC00302278;
+			productRefGroup = 0707D0D1187C6CCC00302278 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0707D0CF187C6CCC00302278 /* FFTableView Sample */,
+				0707D0EF187C6CCD00302278 /* FFTableView SampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0707D0CE187C6CCC00302278 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0707D0E0187C6CCC00302278 /* InfoPlist.strings in Resources */,
+				0707D0EB187C6CCC00302278 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0707D0EE187C6CCD00302278 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0707D0FD187C6CCD00302278 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0707D0CC187C6CCC00302278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0707D132187F0D1F00302278 /* FFExpandableTableViewController.m in Sources */,
+				0707D0E9187C6CCC00302278 /* FFTableViewSample.xcdatamodeld in Sources */,
+				0707D144187F22A100302278 /* City.m in Sources */,
+				0707D0E6187C6CCC00302278 /* FFAppDelegate.m in Sources */,
+				0707D138187F0DAF00302278 /* FFSampleTableViewController.m in Sources */,
+				0707D12E187F0D1F00302278 /* FFTableViewDataSource.m in Sources */,
+				0707D130187F0D1F00302278 /* FFExpandableTableViewCell.m in Sources */,
+				0707D148187F22A100302278 /* State.m in Sources */,
+				0707D134187F0D1F00302278 /* FFTableViewController.m in Sources */,
+				0707D140187F0FB000302278 /* FFCityCell.m in Sources */,
+				0707D12C187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m in Sources */,
+				0707D0E2187C6CCC00302278 /* main.m in Sources */,
+				0707D13C187F0EBA00302278 /* FFSampleExpandableTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0707D0EC187C6CCD00302278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0707D145187F22A100302278 /* City.m in Sources */,
+				0707D12D187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m in Sources */,
+				0707D131187F0D1F00302278 /* FFExpandableTableViewCell.m in Sources */,
+				0707D149187F22A100302278 /* State.m in Sources */,
+				0707D139187F0DAF00302278 /* FFSampleTableViewController.m in Sources */,
+				0707D13D187F0EBA00302278 /* FFSampleExpandableTableViewController.m in Sources */,
+				0707D0FF187C6CCD00302278 /* FFTableViewSampleTests.m in Sources */,
+				0707D14B18805FA100302278 /* FFTableViewSample.xcdatamodeld in Sources */,
+				0707D135187F0D1F00302278 /* FFTableViewController.m in Sources */,
+				0707D12F187F0D1F00302278 /* FFTableViewDataSource.m in Sources */,
+				0707D133187F0D1F00302278 /* FFExpandableTableViewController.m in Sources */,
+				0707D141187F0FB000302278 /* FFCityCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0707D0F7187C6CCD00302278 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0707D0CF187C6CCC00302278 /* FFTableView Sample */;
+			targetProxy = 0707D0F6187C6CCD00302278 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0707D0DE187C6CCC00302278 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0707D0DF187C6CCC00302278 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0707D0FB187C6CCD00302278 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0707D0FC187C6CCD00302278 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0707D100187C6CCD00302278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0707D101187C6CCD00302278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0707D103187C6CCD00302278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FFTableView/FFTableView Sample-Prefix.pch";
+				INFOPLIST_FILE = "FFTableView/FFTableView Sample-Info.plist";
+				PRODUCT_NAME = "FFTableView Sample";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0707D104187C6CCD00302278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FFTableView/FFTableView Sample-Prefix.pch";
+				INFOPLIST_FILE = "FFTableView/FFTableView Sample-Info.plist";
+				PRODUCT_NAME = "FFTableView Sample";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0707D106187C6CCD00302278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FFTableView.app/FFTableView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FFTableView/FFTableView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FFTableViewTests/FFTableView SampleTests-Info.plist";
+				PRODUCT_NAME = "FFTableView SampleTests";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0707D107187C6CCD00302278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FFTableView.app/FFTableView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FFTableView/FFTableView-Prefix.pch";
+				INFOPLIST_FILE = "FFTableViewTests/FFTableView SampleTests-Info.plist";
+				PRODUCT_NAME = "FFTableView SampleTests";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0707D0CB187C6CCC00302278 /* Build configuration list for PBXProject "FFTableView Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0707D100187C6CCD00302278 /* Debug */,
+				0707D101187C6CCD00302278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0707D102187C6CCD00302278 /* Build configuration list for PBXNativeTarget "FFTableView Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0707D103187C6CCD00302278 /* Debug */,
+				0707D104187C6CCD00302278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0707D105187C6CCD00302278 /* Build configuration list for PBXNativeTarget "FFTableView SampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0707D106187C6CCD00302278 /* Debug */,
+				0707D107187C6CCD00302278 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0707D0E7187C6CCC00302278 /* FFTableViewSample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0707D0E8187C6CCC00302278 /* FFTableViewSample.xcdatamodel */,
+			);
+			currentVersion = 0707D0E8187C6CCC00302278 /* FFTableViewSample.xcdatamodel */;
+			path = FFTableViewSample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0707D0C8187C6CCC00302278 /* Project object */;
+}
