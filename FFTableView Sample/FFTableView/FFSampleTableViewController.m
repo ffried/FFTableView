@@ -13,7 +13,9 @@
 
 @end
 
+
 static NSString *const FFSampleCellIdentifier = @"FFSampleCellIdentifier";
+
 @implementation FFSampleTableViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -31,6 +33,7 @@ static NSString *const FFSampleCellIdentifier = @"FFSampleCellIdentifier";
     [self setupWithFetchedResultsController:self.fetchedResultsController tableView:self.tableView fetchedResultsControllerDelegate:self tableViewDataSourceDelegate:self];
 }
 
+#pragma mark - Properties
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (!_fetchedResultsController) {
@@ -65,6 +68,7 @@ static NSString *const FFSampleCellIdentifier = @"FFSampleCellIdentifier";
     cell.textLabel.text = city.name;
 }
 
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

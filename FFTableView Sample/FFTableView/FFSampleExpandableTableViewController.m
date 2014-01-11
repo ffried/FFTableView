@@ -17,6 +17,7 @@
 
 
 static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellIdentifier";
+
 @implementation FFSampleExpandableTableViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -34,6 +35,7 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
     [self setupWithFetchedResultsController:self.fetchedResultsController tableView:self.tableView fetchedResultsControllerDelegate:self tableViewDataSourceDelegate:self];
 }
 
+#pragma mark - Properties
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (!_fetchedResultsController) {

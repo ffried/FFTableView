@@ -14,10 +14,13 @@
 #import "City.h"
 
 @interface FFAppDelegate ()
+
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) FFSampleTableViewController *tableViewController;
 @property (nonatomic, strong) FFSampleExpandableTableViewController *expandableTableViewController;
+
 - (void)setupSampleData;
+
 @end
 
 @implementation FFAppDelegate
@@ -29,14 +32,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"FilledCoreData"] == NO) {
+    // Only fill the database if it wasn't yet filled
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"FilledCoreData"]) {
         [self setupSampleData]; // Fills Core Data with some sample data
         [self saveContext];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FilledCoreData"];
     }
     
     self.tableViewController = [[FFSampleTableViewController alloc] init];
-    
     self.expandableTableViewController = [[FFSampleExpandableTableViewController alloc] init];
     
     self.tabBarController = [[UITabBarController alloc] init];

@@ -161,10 +161,10 @@
 				0707D0E5187C6CCC00302278 /* FFAppDelegate.m */,
 				0707D136187F0DAF00302278 /* FFSampleTableViewController.h */,
 				0707D137187F0DAF00302278 /* FFSampleTableViewController.m */,
-				0707D13E187F0FB000302278 /* FFCityCell.h */,
-				0707D13F187F0FB000302278 /* FFCityCell.m */,
 				0707D13A187F0EBA00302278 /* FFSampleExpandableTableViewController.h */,
 				0707D13B187F0EBA00302278 /* FFSampleExpandableTableViewController.m */,
+				0707D13E187F0FB000302278 /* FFCityCell.h */,
+				0707D13F187F0FB000302278 /* FFCityCell.m */,
 				0707D14A187F22A700302278 /* CoreData Stuff */,
 				0707D0EA187C6CCC00302278 /* Images.xcassets */,
 				0707D0DC187C6CCC00302278 /* Supporting Files */,
@@ -218,10 +218,10 @@
 		0707D120187F0D1F00302278 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				0707D121187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.h */,
-				0707D122187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m */,
 				0707D123187F0D1F00302278 /* FFTableViewDataSource.h */,
 				0707D124187F0D1F00302278 /* FFTableViewDataSource.m */,
+				0707D121187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.h */,
+				0707D122187F0D1F00302278 /* FFNSFetchedResultsControllerDelegate.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -229,10 +229,10 @@
 		0707D125187F0D1F00302278 /* Expandable */ = {
 			isa = PBXGroup;
 			children = (
-				0707D126187F0D1F00302278 /* FFExpandableTableViewCell.h */,
-				0707D127187F0D1F00302278 /* FFExpandableTableViewCell.m */,
 				0707D128187F0D1F00302278 /* FFExpandableTableViewController.h */,
 				0707D129187F0D1F00302278 /* FFExpandableTableViewController.m */,
+				0707D126187F0D1F00302278 /* FFExpandableTableViewCell.h */,
+				0707D127187F0D1F00302278 /* FFExpandableTableViewCell.m */,
 			);
 			path = Expandable;
 			sourceTree = "<group>";

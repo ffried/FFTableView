@@ -19,6 +19,7 @@
 
 @end
 
+
 @implementation FFCityCell
 
 - (void)initialize
@@ -28,6 +29,7 @@
     [self setupExpandedView];
 }
 
+#pragma mark - View setup
 - (void)setupCollapsedView
 {
     self.nameLabel = [[UILabel alloc] init];
@@ -58,6 +60,7 @@
     [self.expandedView addConstraints:constraints];
 }
 
+#pragma mark - Cell configuration
 - (void)configureWithObject:(City *)object expanded:(BOOL)expanded
 {
     [super configureWithObject:object expanded:expanded];
