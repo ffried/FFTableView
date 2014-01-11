@@ -15,7 +15,7 @@ However, there are a few differences. `FFTableViewController` comes with two pro
 
 If your `AppDelegate` responds to `managedObjectContext` you don't need to set it manually. Otherwise you do have to set it manually for example in the `- (void)initialize;` method, which get's called no matter if you use XIBs or create your instances from code.
 
-Furthermore `FFTableViewController` has two more properties and a convenience method to assign them:
+Furthermore, `FFTableViewController` has two more properties and a convenience method to assign them:
 
 	@property (nonatomic, strong) FFTableViewDataSource *tableViewDataSource;
 	@property (nonatomic, strong) FFNSFetchedResultsControllerDelegate *fetchedResultsControllerDelegate;
@@ -23,6 +23,11 @@ Furthermore `FFTableViewController` has two more properties and a convenience me
 	- (void)setupWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController tableView:(UITableView *)tableView fetchedResultsControllerDelegate:(id<FFNSFetchedResultsControllerDelegate>)frcdelegate tableViewDataSourceDelegate:(id<FFTableViewDataSourceDelegate>)tvdsdelegate;
 
 The `FFTableViewController` is also automatically set as the tableview's delegate.
+
+If you should not want the CoreData part of FFTableView (such as if you only want the expandable table view classes) you can turn it off by setting the `#define FFTableViewUseCoreData 1` to 0.
+Also, FFTableView fixes the iOS 7 bug that the cell doesn't get deselected when using interactive dismiss in a navigation controller. You can also turn this off by setting `#define FFTableViewShouldFixIOS7InteractiveDeselectBug 1` to 0.
+Both defines are in `FFTableViewController.h`.
+
 
 ## FFTableViewDataSource and FFNSFetchedResultsControllerDelegate
 The `FFTableViewDataSource` is a data source class which handles all the data source methods. It has, however, a delegate you need to implement to provide some information needed:
@@ -98,4 +103,4 @@ There's a sample project included in which you can see both, the `FFExpandableTa
 There are still some more or less random `unsatisfiable constraints` exceptions coming along with the expandable tableview classes. However, they don't cause a crash.
 
 # License
-The `FFTableView` is under MIT license. See LICENSE.md file for the full license.
+The FFTableView is under MIT license. See LICENSE.md file for the full license.
