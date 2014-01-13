@@ -19,8 +19,8 @@
 
 @interface FFExpandableTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIView *collapsedView; // Always displayed
-@property (nonatomic, strong) UIView *expandedView; // Displayed below collapsed view when expanded
+@property (nonatomic, strong) IBOutlet UIView *collapsedView; // Always displayed
+@property (nonatomic, strong) IBOutlet UIView *expandedView; // Displayed below collapsed view when expanded
 
 // Always called, no matter if you use XIBs or code. Requires you to call super
 - (void)initialize;
