@@ -93,11 +93,12 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
     return size.height;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // You should definitively do some better calculations here!
-    CGFloat height = 50.0f;
-    return ([self isIndexPathExpanded:indexPath]) ? height * 2.0f : height;
-}
+// If you have a huge amount of cells you should implement this and return appropriate values.
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // You should definitively do some better calculations here!
+//    CGFloat height = 130.0f;
+//    return ([self isIndexPathExpanded:indexPath]) ? height * 2.0f : height;
+//}
 
 @end

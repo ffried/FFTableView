@@ -54,11 +54,8 @@
 {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    self.clipsToBounds = YES;
-    
-    self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    self.contentView.clipsToBounds = YES;
+    // Autolayout hack
+    self.contentView.bounds = CGRectMake(0.0f, 0.0f, 9999.0f, 9999.0f);
     
     // Also sets up the constraints, see setters
     self.collapsedView = [[UIView alloc] init];
@@ -71,13 +68,15 @@
 {
     if (self.expanded != expanded) {
         self.expanded = expanded;
+        // Autolayout hack
+        self.contentView.bounds = CGRectMake(0.0f, 0.0f, 9999.0f, 9999.0f);
         if (expanded) {
             [self setupTheExpandedView];
         } else {
             [self.expandedView removeFromSuperview];
         }
         [self setupBottomConstraintExpanded:expanded];
-        [self.contentView setNeedsLayout];
+        [self setNeedsLayout];
     }
 }
 
