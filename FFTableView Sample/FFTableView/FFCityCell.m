@@ -43,6 +43,8 @@
     
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[name]-|" options:kNilOptions metrics:nil views:views];
     [self.collapsedView addConstraints:constraints];
+    
+    self.collapsedView.backgroundColor = [UIColor greenColor];
 }
 
 - (void)setupExpandedView
@@ -58,6 +60,8 @@
     
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[rank]-|" options:kNilOptions metrics:nil views:views];
     [self.expandedView addConstraints:constraints];
+    
+    self.expandedView.backgroundColor = [UIColor redColor];
 }
 
 #pragma mark - Cell configuration

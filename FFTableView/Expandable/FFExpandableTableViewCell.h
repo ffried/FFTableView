@@ -17,15 +17,31 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  An expandable UITableViewCell.
+ */
 @interface FFExpandableTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIView *collapsedView; // Always displayed
-@property (nonatomic, strong) IBOutlet UIView *expandedView; // Displayed below collapsed view when expanded
+/**
+ *  The upper view. Always visible.
+ */
+@property (nonatomic, strong) IBOutlet UIView *collapsedView;
+/**
+ *  The lower view. Visible below the collapsedView when expanded.
+ */
+@property (nonatomic, strong) IBOutlet UIView *expandedView;
 
-// Always called, no matter if you use XIBs or code. Requires you to call super
-- (void)initialize;
+/**
+ *  Initializes the cell. Called no matter if XIBs are used or not.
+ */
+- (void)initialize NS_REQUIRES_SUPER;
 
-// It's important to call super at the beginning and [self layoutIfNeeded]; at the and of the implenentation in a subclass
-- (void)configureWithObject:(id)object expanded:(BOOL)expanded;
+/**
+ *  Configures the cell with an object.
+ *  It's important that you call super at the beginning and [self layoutIfNeeded]; at the end of your implementation.
+ *  @param object   The object with which to configure the cell.
+ *  @param expanded The expanded state of the cell.
+ */
+- (void)configureWithObject:(id)object expanded:(BOOL)expanded NS_REQUIRES_SUPER;
 
 @end

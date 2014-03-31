@@ -20,11 +20,15 @@
 
 // Ability to turn off Core Data Support. However, this doesn't make sense since Core Data is one reason for this library to exist.
 // It might only make sense if you want to use the expandable table view but without Core Data...
+#ifndef FFTableViewUseCoreData
 #define FFTableViewUseCoreData 1
+#endif
 
 // Only define the fix var if iOS 7 is included between min and max OS
 #ifdef __IPHONE_7_0
+#ifndef FFTableViewShouldFixIOS7InteractiveDeselectBug
 #define FFTableViewShouldFixIOS7InteractiveDeselectBug 1
+#endif
 #endif
 
 #if FFTableViewUseCoreData
@@ -33,22 +37,47 @@
 #import "FFTableViewDataSource.h"
 #endif
 
+/**
+ *  A UITableViewController subclass with some useful properties and methods for use with CoreData.
+ */
 @interface FFTableViewController : UITableViewController <UITableViewDelegate>
 
 #if FFTableViewUseCoreData
+/**
+ *  The managed object context of the table view controller.
+ */
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+/**
+ *  The fetched results controller of the table view controller.
+ */
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+/**
+ *  The table view data source object of the table view controller.
+ */
 @property (nonatomic, strong) FFTableViewDataSource *tableViewDataSource;
+/**
+ *  The fetched results controller object of the table view controller.
+ */
 @property (nonatomic, strong) FFNSFetchedResultsControllerDelegate *fetchedResultsControllerDelegate;
 
+/**
+ *  Sets up the tableViewDataSource and fetchedResultsControllerDelegate property.
+ *  @param fetchedResultsController The NSFetchedResultsController to use.
+ *  @param tableView                The UITableView to use.
+ *  @param frcdelegate              The FFNSFetchedResultsControllerDelegate's delegate.
+ *  @param tvdsdelegate             The FFTableViewDataSource's delegate.
+ */
 - (void)setupWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
                                 tableView:(UITableView *)tableView
          fetchedResultsControllerDelegate:(id<FFNSFetchedResultsControllerDelegate>)frcdelegate
               tableViewDataSourceDelegate:(id<FFTableViewDataSourceDelegate>)tvdsdelegate;
 #endif
 
-// Use to set up things. It get's called no matter if you use XIBs or code
+/**
+ *  Set up the table view controller.
+ *  Called whether XIBs are used or not.
+ */
 - (void)initialize;
 
 @end

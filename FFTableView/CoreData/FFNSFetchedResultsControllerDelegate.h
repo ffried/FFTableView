@@ -19,16 +19,38 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+/**
+ *  The delegate protocol of FFNSFetchedResultsControllerDelegate.
+ *  It's completely adopted from the NSFetchedResultsControllerDelegate protocol.
+ */
 @protocol FFNSFetchedResultsControllerDelegate <NSFetchedResultsControllerDelegate, NSObject>
-// Everything is adopted from the NSFetchedResultsControllerDelegate protocol
 @end
 
+/**
+ *  Handles the delegate of a NSFetchedResultsController but allows to override the methods to do work on yourself.
+ */
 @interface FFNSFetchedResultsControllerDelegate : NSObject <NSFetchedResultsControllerDelegate>
 
+/**
+ *  The NSFetchedResultsController to handle the delegate for.
+ */
 @property (nonatomic, weak) NSFetchedResultsController *fetchedResultsController;
+/**
+ *  The UITableView to update with the NSFetchedResultsController.
+ */
 @property (nonatomic, weak) UITableView *tableView;
+/**
+ *  The delegate to check for overridden NSFetchedResultsControllerDelegate methods.
+ */
 @property (nonatomic, assign) id<FFNSFetchedResultsControllerDelegate> delegate;
 
+/**
+ *  Instantiates a new FFNSFetchedResultsControllerDelegate.
+ *  @param fetchedResultsController The NSFetchedResultsController to use.
+ *  @param tableView                The UITableView to use.
+ *  @param delegate                 A delegate or nil.
+ *  @return A new instance of FFNSFetchedResultsControllerDelegate.
+ */
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
                                        tableView:(UITableView *)tableView
                                         delegate:(id<FFNSFetchedResultsControllerDelegate>)delegate;

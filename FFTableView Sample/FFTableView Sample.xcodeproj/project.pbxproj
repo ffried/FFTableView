@@ -294,7 +294,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FF;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Florian Friedrich";
 				TargetAttributes = {
 					0707D0EF187C6CCD00302278 = {
@@ -444,7 +444,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;

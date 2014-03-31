@@ -19,13 +19,31 @@
 
 @interface FFExpandableTableViewController : FFTableViewController
 
+/**
+ *  Indicates whether multiple expanded cells are allowed or not.
+ *  Defaults to NO.
+ */
 @property (nonatomic, assign) BOOL allowsMultipleExpandedCells;
 
+/**
+ *  Checks whether a given indexPath is expanded or not.
+ *  @param indexPath The indexPath to check.
+ *  @return YES if the indexPath is expanded, NO otherwise.
+ */
 - (BOOL)isIndexPathExpanded:(NSIndexPath *)indexPath;
+/**
+ *  Changes the expanded state of a given indexPath.
+ *  @param indexPath The indexPath to change the expanded state for.
+ *  @param expanded  YES if expanded, NO otherwise.
+ */
 - (void)setIndexPath:(NSIndexPath *)indexPath expanded:(BOOL)expanded;
 
-// I know this is a UITableViewDelegate method, but it's needed to do actually set the index path expanded.
-// So if you need it just override it and don't forget to call super!
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+/**
+ *  This is normally a UITableViewDelegate method, but it's needed to set an indexpath expanded.
+ *  If you need this method override it and call super at the beginning of your implementation.
+ *  @param tableView The tableview in which a row was selected.
+ *  @param indexPath The indexPath of the selected row.
+ */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath NS_REQUIRES_SUPER;
 
 @end

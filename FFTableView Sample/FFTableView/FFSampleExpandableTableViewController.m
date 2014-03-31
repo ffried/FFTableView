@@ -80,10 +80,14 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.prototypeCell) {
-        self.prototypeCell = [tableView dequeueReusableCellWithIdentifier:[self tableView:tableView cellIdentifierForRowAtIndexPath:indexPath]];
+    NSString *identifier = [self tableView:tableView cellIdentifierForRowAtIndexPath:indexPath];
+    if (!self.prototypeCell || ![self.prototypeCell.reuseIdentifier isEqualToString:identifier]) {
+        self.prototypeCell = [tableView dequeueReusableCellWithIdentifier:identifier];
     }
-    [self tableView:tableView configureCell:self.prototypeCell forRowAtIndexPath:indexPath withObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    [self tableView:tableView
+      configureCell:self.prototypeCell
+  forRowAtIndexPath:indexPath
+         withObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     
     CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height;
@@ -92,7 +96,8 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // You should definitively do some better calculations here!
-    return ([self isIndexPathExpanded:indexPath]) ? 44.0f * 2.0f : 44.0f;
+    CGFloat height = 50.0f;
+    return ([self isIndexPathExpanded:indexPath]) ? height * 2.0f : height;
 }
 
 @end

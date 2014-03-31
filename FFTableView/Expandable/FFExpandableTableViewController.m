@@ -31,8 +31,10 @@
 {
     [super initialize];
     self.expandedIndexPaths = [[NSMutableArray alloc] init];
+    self.allowsMultipleExpandedCells = NO;
 }
 
+#pragma mark - Expanded methods
 - (BOOL)isIndexPathExpanded:(NSIndexPath *)indexPath
 {
     return [self.expandedIndexPaths containsObject:indexPath];
@@ -46,7 +48,7 @@
             [self.expandedIndexPaths addObject:indexPath];
         } else {
             if (self.expandedIndexPaths.count > 0) {
-                NSIndexPath *oldIndexPath = self.expandedIndexPaths.lastObject;
+                NSIndexPath *oldIndexPath = [self.expandedIndexPaths lastObject];
                 indexPaths = @[oldIndexPath, indexPath];
                 [self.expandedIndexPaths removeObject:oldIndexPath];
             }
@@ -58,7 +60,7 @@
     [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-#pragma mark - UITableView Delegate
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self setIndexPath:indexPath expanded:![self isIndexPathExpanded:indexPath]];

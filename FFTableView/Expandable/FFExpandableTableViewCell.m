@@ -19,10 +19,16 @@
 
 @interface FFExpandableTableViewCell ()
 
-@property (nonatomic, strong) NSLayoutConstraint *interConstraint;
-@property (nonatomic, strong) NSLayoutConstraint *bottomConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *bottomConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *interConstraint;
 
-- (void)setBottomConstraintWithView:(UIView *)view;
+@property (nonatomic) BOOL expanded;
+
+- (void)setupTheCollapsedView;
+- (void)setupTheExpandedView;
+
+- (void)setupBottomConstraintExpanded:(BOOL)expanded;
+- (void)setupInterConstraint;
 
 @end
 
@@ -48,18 +54,31 @@
 {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.clipsToBounds = YES;
     
-    // Also sets the constraints, see setters
+    self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.contentView.clipsToBounds = YES;
+    
+    // Also sets up the constraints, see setters
     self.collapsedView = [[UIView alloc] init];
     self.expandedView = [[UIView alloc] init];
+    self.expanded = YES;
 }
 
 #pragma mark - Configuration
 - (void)configureWithObject:(id)object expanded:(BOOL)expanded
 {
-//    [self layoutIfNeeded];
-    [self setBottomConstraintWithView:((expanded) ? self.expandedView : self.collapsedView)];
+    if (self.expanded != expanded) {
+        self.expanded = expanded;
+        if (expanded) {
+            [self setupTheExpandedView];
+        } else {
+            [self.expandedView removeFromSuperview];
+        }
+        [self setupBottomConstraintExpanded:expanded];
+        [self.contentView setNeedsLayout];
+    }
 }
 
 #pragma mark - Properties
@@ -68,26 +87,8 @@
     if (collapsedView != _collapsedView) {
         [_collapsedView removeFromSuperview];
         _collapsedView = collapsedView;
-        _collapsedView.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        [self.contentView addSubview:_collapsedView];
-        
-        NSDictionary *viewsDictionary = @{@"collapsedView": _collapsedView};
-        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collapsedView]|"
-                                                                       options:kNilOptions
-                                                                       metrics:nil
-                                                                         views:viewsDictionary];
-        [self.contentView addConstraints:constraints];
-        
-        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collapsedView]"
-                                                              options:kNilOptions
-                                                              metrics:nil
-                                                                views:viewsDictionary];
-        [self.contentView addConstraints:constraints];
-        
-        if (self.expandedView && !self.interConstraint) [self setupInterConstraint];
-        
-        [self setBottomConstraintWithView:_collapsedView];
+        [self setupTheCollapsedView];
+        [self setupBottomConstraintExpanded:NO];
     }
 }
 
@@ -96,30 +97,55 @@
     if (expandedView != _expandedView) {
         [_expandedView removeFromSuperview];
         _expandedView = expandedView;
-        _expandedView.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        [self.contentView addSubview:_expandedView];
-        
-        NSDictionary *viewsDictionary = @{@"expandedView": _expandedView};
-        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[expandedView]|"
-                                                                       options:kNilOptions
-                                                                       metrics:nil
-                                                                         views:viewsDictionary];
-        [self.contentView addConstraints:constraints];
-        
-        
-        if (self.collapsedView && !self.interConstraint) [self setupInterConstraint];
-        
-        [self setBottomConstraintWithView:_expandedView];
+        [self setupTheExpandedView];
+        [self setupBottomConstraintExpanded:YES];
     }
 }
 
+#pragma mark - Setup views
+- (void)setupTheCollapsedView
+{
+    self.collapsedView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:self.collapsedView];
+    
+    NSDictionary *viewsDictionary = @{@"collapsedView": self.collapsedView};
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collapsedView]|"
+                                                                   options:kNilOptions
+                                                                   metrics:nil
+                                                                     views:viewsDictionary];
+    [self.contentView addConstraints:constraints];
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collapsedView]"
+                                                          options:kNilOptions
+                                                          metrics:nil
+                                                            views:viewsDictionary];
+    [self.contentView addConstraints:constraints];
+    
+    [self setupInterConstraint];
+}
+
+- (void)setupTheExpandedView
+{
+    self.expandedView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:self.expandedView];
+    
+    NSDictionary *viewsDictionary = @{@"expandedView": self.expandedView};
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[expandedView]|"
+                                                                   options:kNilOptions
+                                                                   metrics:nil
+                                                                     views:viewsDictionary];
+    [self.contentView addConstraints:constraints];
+    
+    [self setupInterConstraint];
+}
+
 #pragma mark - Helpers
-- (void)setBottomConstraintWithView:(UIView *)view
+- (void)setupBottomConstraintExpanded:(BOOL)expanded
 {
     if (self.bottomConstraint != nil) [self.contentView removeConstraint:self.bottomConstraint];
     
-    self.bottomConstraint = [NSLayoutConstraint constraintWithItem:view
+    UIView *firstView = (expanded) ? self.expandedView : self.collapsedView;
+    self.bottomConstraint = [NSLayoutConstraint constraintWithItem:firstView
                                                          attribute:NSLayoutAttributeBottom
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self.contentView
@@ -134,12 +160,12 @@
     if (self.interConstraint != nil) [self.contentView removeConstraint:self.interConstraint];
     
     self.interConstraint = [NSLayoutConstraint constraintWithItem:self.collapsedView
-                                                         attribute:NSLayoutAttributeBottom
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self.expandedView
-                                                         attribute:NSLayoutAttributeTop
-                                                        multiplier:1.0f
-                                                          constant:0.0f];
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.expandedView
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:0.0f];
     [self.contentView addConstraint:self.interConstraint];
 }
 

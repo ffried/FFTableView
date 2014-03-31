@@ -19,9 +19,26 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+/**
+ *  The delegate protocol for FFTableViewDataSource.
+ *  Allows to provide needed information as well as take control of data source methods not handled by the FFTableViewDataSource.
+ */
 @protocol FFTableViewDataSourceDelegate <NSObject>
 @required
+/**
+ *  Asks for a reuse identifier for a cell at a given indexPath.
+ *  @param tableView The UITableView for which a cell reuse identifier is needed.
+ *  @param indexPath The NSIndexPath for which to provide a reuse identifier.
+ *  @return A reuse identifier which is used to dequeue a cell for the given indexPath.
+ */
 - (NSString *)tableView:(UITableView *)tableView cellIdentifierForRowAtIndexPath:(NSIndexPath *)indexPath;
+/**
+ *  Asks the delegate to configure a cell.
+ *  @param tableView The UITableView in which the cell is contained.
+ *  @param cell      The UITableViewCell to configure.
+ *  @param indexPath The NSIndexPath of the cell.
+ *  @param object    The object from the NSFetchedResultsController. Normally a NSManagedObject subclass.
+ */
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
 
 @optional
@@ -38,12 +55,31 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
 @end
 
+/**
+ *  Handles the data source of a UITableView with a NSFetchedResultsController.
+ */
 @interface FFTableViewDataSource : NSObject <UITableViewDataSource>
 
+/**
+ *  The UITableView to update.
+ */
 @property (nonatomic, weak) UITableView *tableView;
+/**
+ *  The NSFetchedResultsController from which to take the objects.
+ */
 @property (nonatomic, weak) NSFetchedResultsController *fetchedResultsController;
+/**
+ *  The delegate which to ask for the needed information.
+ */
 @property (nonatomic, assign) id<FFTableViewDataSourceDelegate> delegate;
 
+/**
+ *  Creates a new instance of FFTableViewDataSource.
+ *  @param fetchedResultsController The NSFetchedResultsController to use for getting the objects.
+ *  @param tableView                The UITableView to update.
+ *  @param delegate                 The delegate to ask for information.
+ *  @return A new FFTableViewDataSource instance.
+ */
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
                                                tableView:(UITableView *)tableView
                                                 delegate:(id<FFTableViewDataSourceDelegate>)delegate;
