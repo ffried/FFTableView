@@ -67,7 +67,7 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object
 {
     FFCityCell *cityCell = (FFCityCell *)cell; // Cell is a FFCityCell as registered in viewDidLoad
-    BOOL expanded = [self isIndexPathExpanded:indexPath]; // isIndexPathExpanded returns true if the indexPath is expanded
+    BOOL expanded = [self isIndexPathExpanded:indexPath]; // isIndexPathExpanded returns YES if the indexPath is expanded
     [cityCell configureWithObject:object expanded:expanded]; // Configure the cell
 }
 
@@ -93,12 +93,13 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
     return size.height;
 }
 
+// It seems like this methods causes the tableview to scroll anywhere randomly
 // If you have a huge amount of cells you should implement this and return appropriate values.
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // You should definitively do some better calculations here!
-    CGFloat height = 130.0f;
-    return ([self isIndexPathExpanded:indexPath]) ? height * 2.0f : height;
-}
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // You should definitively do some better calculations here!
+//    CGFloat height = 130.0f;
+//    return ([self isIndexPathExpanded:indexPath]) ? height * 2.0f : height;
+//}
 
 @end

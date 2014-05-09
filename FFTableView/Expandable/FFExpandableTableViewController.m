@@ -27,6 +27,7 @@
 
 @implementation FFExpandableTableViewController
 
+#pragma mark - Initialize
 - (void)initialize
 {
     [super initialize];
@@ -42,7 +43,7 @@
 
 - (void)setIndexPath:(NSIndexPath *)indexPath expanded:(BOOL)expanded
 {
-//    [self.tableView beginUpdates];
+    [self.tableView beginUpdates];
     NSArray *indexPaths = @[indexPath];
     if (expanded) {
         if (self.allowsMultipleExpandedCells) {
@@ -50,7 +51,7 @@
         } else {
             if (self.expandedIndexPaths.count > 0) {
                 NSIndexPath *oldIndexPath = [self.expandedIndexPaths lastObject];
-                indexPaths = @[oldIndexPath, indexPath];
+                indexPaths = @[indexPath, oldIndexPath];
                 [self.expandedIndexPaths removeObject:oldIndexPath];
             }
             [self.expandedIndexPaths addObject:indexPath];
@@ -58,8 +59,13 @@
     } else {
         [self.expandedIndexPaths removeObject:indexPath];
     }
-    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-//    [self.tableView endUpdates];
+    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+    
+    // This might cause random scrolling, but better than nothing
+    if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
 }
 
 #pragma mark - UITableViewDelegate
