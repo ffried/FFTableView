@@ -42,7 +42,7 @@
 
 - (void)setIndexPath:(NSIndexPath *)indexPath expanded:(BOOL)expanded
 {
-    [self.tableView beginUpdates];
+//    [self.tableView beginUpdates];
     NSArray *indexPaths = @[indexPath];
     if (expanded) {
         if (self.allowsMultipleExpandedCells) {
@@ -59,7 +59,7 @@
         [self.expandedIndexPaths removeObject:indexPath];
     }
     [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
+//    [self.tableView endUpdates];
 }
 
 #pragma mark - UITableViewDelegate
