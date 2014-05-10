@@ -30,6 +30,8 @@ static NSString *const FFSampleCellIdentifier = @"FFSampleCellIdentifier";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:FFSampleCellIdentifier];
+    UIEdgeInsets contentInsets = self.tableView.contentInset;
+    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, contentInsets.left, contentInsets.bottom, contentInsets.right);
     [self setupWithFetchedResultsController:self.fetchedResultsController tableView:self.tableView fetchedResultsControllerDelegate:self tableViewDataSourceDelegate:self];
 }
 

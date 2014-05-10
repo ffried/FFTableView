@@ -32,6 +32,8 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.tableView registerClass:[FFCityCell class] forCellReuseIdentifier:FFExpandableCityCellIdentifier];
+    UIEdgeInsets contentInsets = self.tableView.contentInset;
+    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, contentInsets.left, contentInsets.bottom, contentInsets.right);
     [self setupWithFetchedResultsController:self.fetchedResultsController tableView:self.tableView fetchedResultsControllerDelegate:self tableViewDataSourceDelegate:self];
 }
 
