@@ -18,13 +18,6 @@
 #import "FFExpandableTableViewController.h"
 #import "FFExpandableTableViewCell.h"
 
-@interface FFExpandableTableViewCell (InternalMethods)
-
-- (void)setupExpanded:(BOOL)expanded;
-
-@end
-
-
 @interface FFExpandableTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *expandedIndexPaths;

@@ -24,8 +24,6 @@
 
 @property (nonatomic) BOOL expanded;
 
-- (void)setupExpanded:(BOOL)expanded;
-
 - (void)setupTheCollapsedView;
 - (void)setupTheExpandedView;
 
