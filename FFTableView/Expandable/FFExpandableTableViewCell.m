@@ -24,6 +24,8 @@
 
 @property (nonatomic) BOOL expanded;
 
+- (void)setupExpanded:(BOOL)expanded;
+
 - (void)setupTheCollapsedView;
 - (void)setupTheExpandedView;
 
@@ -64,7 +66,7 @@
 }
 
 #pragma mark - Configuration
-- (void)configureWithObject:(id)object expanded:(BOOL)expanded
+- (void)setupExpanded:(BOOL)expanded
 {
     if (self.expanded != expanded) {
         self.expanded = expanded;
@@ -76,8 +78,13 @@
             [self.expandedView removeFromSuperview];
         }
         [self setupBottomConstraintExpanded:expanded];
-        [self setNeedsLayout];
+//        [self setNeedsLayout];
     }
+}
+
+- (void)configureWithObject:(id)object expanded:(BOOL)expanded
+{
+    [self setupExpanded:expanded];
 }
 
 #pragma mark - Properties

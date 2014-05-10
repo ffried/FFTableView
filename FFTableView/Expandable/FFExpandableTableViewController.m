@@ -18,6 +18,13 @@
 #import "FFExpandableTableViewController.h"
 #import "FFExpandableTableViewCell.h"
 
+@interface FFExpandableTableViewCell (InternalMethods)
+
+- (void)setupExpanded:(BOOL)expanded;
+
+@end
+
+
 @interface FFExpandableTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *expandedIndexPaths;
@@ -43,7 +50,7 @@
 
 - (void)setIndexPath:(NSIndexPath *)indexPath expanded:(BOOL)expanded
 {
-    [self.tableView beginUpdates];
+//    [self.tableView beginUpdates];
     NSArray *indexPaths = @[indexPath];
     if (expanded) {
         if (self.allowsMultipleExpandedCells) {
@@ -59,13 +66,20 @@
     } else {
         [self.expandedIndexPaths removeObject:indexPath];
     }
-    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView endUpdates];
+    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *ip, NSUInteger idx, BOOL *stop) {
+        [self.tableView beginUpdates];
+        FFExpandableTableViewCell *cell = (FFExpandableTableViewCell *)[self.tableView cellForRowAtIndexPath:ip];
+        [cell setupExpanded:[self isIndexPathExpanded:ip]];
+        [self.tableView endUpdates];
+        [cell layoutIfNeeded];
+    }];
+//    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+//    [self.tableView endUpdates];
     
     // This might cause random scrolling, but better than nothing
-    if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    }
+//    if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+//    }
 }
 
 #pragma mark - UITableViewDelegate

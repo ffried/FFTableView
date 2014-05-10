@@ -41,7 +41,7 @@
  */
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
 
-@optional
+@optional // See UITableViewDataSource protocol documentation for more info about the following methods
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
 
