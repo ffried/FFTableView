@@ -17,6 +17,8 @@
 
 #import "FFTableViewController.h"
 
+
+
 @interface FFExpandableTableViewController : FFTableViewController
 
 /**
@@ -30,13 +32,13 @@
  *  @param indexPath The indexPath to check.
  *  @return YES if the indexPath is expanded, NO otherwise.
  */
-- (BOOL)isIndexPathExpanded:(NSIndexPath *)indexPath;
+- (BOOL)isIndexPathExpanded:(NSIndexPath *)indexPath NS_REQUIRES_SUPER;
 /**
  *  Changes the expanded state of a given indexPath.
  *  @param indexPath The indexPath to change the expanded state for.
  *  @param expanded  YES if expanded, NO otherwise.
  */
-- (void)setIndexPath:(NSIndexPath *)indexPath expanded:(BOOL)expanded;
+- (void)setIndexPath:(NSIndexPath *)indexPath expanded:(BOOL)expanded NS_REQUIRES_SUPER;
 
 /**
  *  This is normally a UITableViewDelegate method, but it's needed to set an indexpath expanded.
