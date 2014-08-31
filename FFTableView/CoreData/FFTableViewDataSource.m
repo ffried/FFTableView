@@ -37,6 +37,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFetchedResultsController:nil tableView:nil delegate:nil];
+}
+
 #pragma mark - manual properties
 - (void)setTableView:(UITableView *)tableView
 {

@@ -38,10 +38,15 @@
 
 /**
  *  Configures the cell with an object.
- *  It's important that you call super at the beginning and [self layoutIfNeeded]; at the end of your implementation.
  *  @param object   The object with which to configure the cell.
- *  @param expanded The expanded state of the cell.
+ *  @param expanded YES if the cell is now expanded, NO otherwise.
  */
 - (void)configureWithObject:(id)object expanded:(BOOL)expanded NS_REQUIRES_SUPER;
+
+/**
+ *  Called whenever the expanded state of the cell changes.
+ *  @param expanded YES if the cell is now expanded, NO otherwise.
+ */
+- (void)setupExpanded:(BOOL)expanded NS_REQUIRES_SUPER;
 
 @end

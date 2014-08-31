@@ -32,6 +32,8 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.tableView registerClass:[FFCityCell class] forCellReuseIdentifier:FFExpandableCityCellIdentifier];
+    UIEdgeInsets contentInsets = self.tableView.contentInset;
+    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, contentInsets.left, contentInsets.bottom, contentInsets.right);
     [self setupWithFetchedResultsController:self.fetchedResultsController tableView:self.tableView fetchedResultsControllerDelegate:self tableViewDataSourceDelegate:self];
 }
 
@@ -67,7 +69,7 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object
 {
     FFCityCell *cityCell = (FFCityCell *)cell; // Cell is a FFCityCell as registered in viewDidLoad
-    BOOL expanded = [self isIndexPathExpanded:indexPath]; // isIndexPathExpanded returns true if the indexPath is expanded
+    BOOL expanded = [self isIndexPathExpanded:indexPath]; // isIndexPathExpanded returns YES if the indexPath is expanded
     [cityCell configureWithObject:object expanded:expanded]; // Configure the cell
 }
 
@@ -93,6 +95,7 @@ static NSString *const FFExpandableCityCellIdentifier = @"FFExpandableCityCellId
     return size.height;
 }
 
+// It seems like this methods causes the tableview to scroll anywhere randomly
 // If you have a huge amount of cells you should implement this and return appropriate values.
 //- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
