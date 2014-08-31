@@ -70,8 +70,8 @@
                                                                                                                   delegate:frcdelegate];
     
     self.tableViewDataSource = [[FFTableViewDataSource alloc] initWithFetchedResultsController:fetchedResultsController
-                                                                                             tableView:tableView
-                                                                                              delegate:tvdsdelegate];
+                                                                                     tableView:tableView
+                                                                                      delegate:tvdsdelegate];
 }
 #endif
 
